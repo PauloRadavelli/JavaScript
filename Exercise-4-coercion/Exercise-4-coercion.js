@@ -9,27 +9,22 @@
         -must contain non-whitespace of at least 3 characters
     }
 */
-var nameTrue = ("Paulo");
-var nameFalse = (123);
+
 function isValidName(name){
-    if (typeof name != 'string'){
-        return false
-    }
-    else if(name.length == 0) {
-        return false
-    }
-    else if (name.replace(/\s/g, '').length != 0) {
-        return false
-    }
-    else{
-        return true
-    }
+	if (typeof name != 'string' && name.trim().length < 3){
+  	return false
+  }
+  else return true
 }
 
-isValidName(nameTrue); // Should return true
-//isValidName(nameFalse); // Should return false
-
-
+// *********************** TESTS:
+console.log(isValidName("Frank") === true);
+console.log(isValidName(false) === false);
+console.log(isValidName(null) === false);
+console.log(isValidName(undefined) === false);
+console.log(isValidName("") === false);
+console.log(isValidName("  \t\n") === false);
+console.log(isValidName("X") === false);
 
 /* 
     Exercise 4.2{
@@ -68,6 +63,3 @@ function hoursAttended(attended, length){
     }
     else return true
 }
-
-// hoursAttended("12.3", "12"); // should return false;
-hoursAttended("14","7"); // should return true;
