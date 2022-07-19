@@ -1,11 +1,13 @@
 /*
-    Exercise 4: DEfina an "isValidName(...)" validator that
-    takes one parameter, "name". The validator returns "true" 
-    if all the following match the parameter ("false" otherwise);
+    Exercise 4{
+        Define an "isValidName(...)" validator that
+        takes one parameter, "name". The validator returns "true" 
+        if all the following match the parameter ("false" otherwise);
 
-    -must be a string
-    -must be non-empty
-    -must contain non-whitespace of at least 3 characters
+        -must be a string
+        -must be non-empty
+        -must contain non-whitespace of at least 3 characters
+    }
 */
 var nameTrue = ("Paulo");
 var nameFalse = (123);
@@ -24,10 +26,24 @@ function isValidName(name){
     }
 }
 
- isValidName(nameTrue); // Should return true
+isValidName(nameTrue); // Should return true
 //isValidName(nameFalse); // Should return false
 
-//// exercise pt 2;
+
+
+/* 
+    Exercise 4.2{
+        Define an "hoursAttended(..)" validator that takes two
+        parameters, "attended" and "length". The validator
+        return "true" if all the following match the two parameters 
+        ("false otherwise");
+
+        -eiter parameter may only be a stringo r a number
+        -both parameters should be treated as numbers
+        -both numbers must be 0 or higher
+        -both numbers must be whole numbers
+    }
+*/
 function hoursAttended(attended, length){
     attended = Number(attended);
     length = Number(length);
