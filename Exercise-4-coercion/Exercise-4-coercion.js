@@ -40,26 +40,51 @@ console.log(isValidName("X") === false);
     }
 */
 function hoursAttended(attended, length){
-    attended = Number(attended);
     length = Number(length);
-    if (typeof attended != 'string' && typeof attended != 'number'){
-        console.log(1)
-        return false
+    if (typeof attended == 'string' && attended.trim() != ""){
+        attended = Number(attended);
     }
-    else if (typeof length != 'string' && typeof length != 'number'){
-        console.log(2)
-
-        return false
+    if (typeof length == 'string' && length.trim != ""){
+        length = Number(length);
     }
-    else if (attended < 0 || length < 0) {
-        console.log(3)
-
-        return false
+    if (typeof attended == "number" && 
+        typeof length == 'number' &&
+        attended <= length &&
+        attended >= 0 &&
+        length >= 0 &&
+        Number.isInteger(attended) &&
+        Number.isInteger(length)
+    ){
+        return true;
     }
-    else if (!Number.isInteger(attended) || !Number.isInteger(length)){
-        console.log(4)
-
-        return false
-    }
-    else return true
+    return false;
 }
+
+// TESTS:
+console.log(hoursAttended(6,10) === true);
+console.log(hoursAttended(6,"10") === true);
+console.log(hoursAttended("6",10) === true);
+console.log(hoursAttended("6","10") === true);
+console.log(hoursAttended("",6) === false);
+console.log(hoursAttended(6,"") === false);
+console.log(hoursAttended("","") === false);
+console.log(hoursAttended("foo",6) === false);
+console.log(hoursAttended(6,"foo") === false);
+console.log(hoursAttended("foo","bar") === false);
+console.log(hoursAttended(null,null) === false);
+console.log(hoursAttended(null,undefined) === false);
+console.log(hoursAttended(undefined,null) === false);
+console.log(hoursAttended(undefined,undefined) === false);
+console.log(hoursAttended(false,false) === false);
+console.log(hoursAttended(false,true) === false);
+console.log(hoursAttended(true,false) === false);
+console.log(hoursAttended(true,true) === false);
+console.log(hoursAttended(10,6) === false);
+console.log(hoursAttended(10,"6") === false);
+console.log(hoursAttended("10",6) === false);
+console.log(hoursAttended("10","6") === false);
+console.log(hoursAttended(6,10.1) === false);
+console.log(hoursAttended(6.1,10) === false);
+console.log(hoursAttended(6,"10.1") === false);
+console.log(hoursAttended("6.1",10) === false);
+console.log(hoursAttended("6.1","10.1") === false);
